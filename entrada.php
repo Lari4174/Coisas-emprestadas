@@ -13,9 +13,9 @@
     <nav>
         <ul>
            <li><a href="#">Home</a></li>
-           <li><a href="login.html">Login</a></li>
-            <li><a href="cadastro.html">Cadastro</a></li>
-            <li><a href="fale.html">Fale conosco</a></li>
+           <li><a href="login.php">Login</a></li>
+            <li><a href="cadastro.php">Cadastro</a></li>
+            <li><a href="fale.php">Fale conosco</a></li>
         </ul>
     </nav>
     <div id="corpo">

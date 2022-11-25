@@ -24,7 +24,7 @@
            <li><a href="principal.php">Principal</a></li>
            <li><a href="#">Gerar relatório de itens pendentes</a></li>
            <li><a href="#">Gerenciar dados</a></li>
-            <li><a href="entrada.html">Logoff</a></li>       
+            <li><a href="entrada.php">Logoff</a></li>       
             <!--menu de navegação, a parte de formatação está no css-->
         </ul>
     </nav>

@@ -12,21 +12,24 @@
     </header>
     <nav>
         <ul>
-           <li><a href="entrada.html">Home</a></li>
-           <li><a href="login.html">Login</a></li>
+           <li><a href="entrada.php">Home</a></li>
+           <li><a href="login.php">Login</a></li>
             <li><a href="#">Cadastro</a></li>
-            <li><a href="fale.html">Fale conosco</a></li>
+            <li><a href="fale.php">Fale conosco</a></li>
         </ul>
     </nav>
     <div id="corpo">
         <section class="login">
             <h2 style="text-align: center;">Cadastro</h2>
-            <form action="#" type="post" class="formu">
+            <form action="Recebecadastro.php" method="post" class="formu">
                 <label>Qual o seu nome?</label>
-                <input type="text" required class="entrada">
+                <input type="text" required class="entrada" name="nome">
+
+                <label>Digite sua cidade</label>
+                <input type="text" required class="entrada" name="cidade">
                 
                 <label>Digite uma senha</label>
-                <input type="password" required class="entrada">
+                <input type="password" required class="entrada" name="pass">
                 
                 <label>Confirme sua senha</label>
                 <input type="password" required class="entrada">
