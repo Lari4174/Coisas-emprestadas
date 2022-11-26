@@ -1,33 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <?php
-        $usuario = $_GET["usuario"];
-        $senha = $_GET["senha"];
-        //ver como fazer a parte de pegar esses dados do banco de dados
-    ?>
-    <!--essa parte precisa pegar com banco de dados já que não tem linkagem que faça compartilhamento de variáveis de php-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coisas emprestadas</title>
-    <link href="css.css" rel="stylesheet" type="text/css">
-    <link href="teste.css" rel="stylesheet" type="text/css">
-    <!--por algum motivo está dando erro no css e ele não integra a página, criado outro arquivo-->
-</head>
+<?php
+require "../requires/PF_head.php";
+?><!--head-->
 <body>
     <header>
         <h1 class="titulo">Coisas emprestadas</h1>
         <!--título da página-->
     </header>
-    <nav>
-        <ul>
-           <li><a href="principal.php">Principal</a></li>
-           <li><a href="#">Gerar relatório de itens pendentes</a></li>
-           <li><a href="#">Gerenciar dados</a></li>
-            <li><a href="entrada.php">Logoff</a></li>       
-            <!--menu de navegação, a parte de formatação está no css-->
-        </ul>
-    </nav>
+
+    <?php require"../requires/nav_sistema.php"?> <!--menu navegação-->
+    
     <div id="corpo">
         <section class="texto_ger">
             <form action="#" type="post">

@@ -101,13 +101,6 @@ section li{
 .Lemprestimo dt{
     margin-bottom: 5px;
 }
-.Bemprestimo{
-    background-color: rgb(245, 209, 161);
-    outline: 0;
-    border: solid 1px black;
-    margin-top: 10px;
-    border-radius: 7px;
-}
 .Etitulo{
     width: 250px;
     text-align: center;
@@ -166,15 +159,53 @@ section li{
     padding: 10px;
 }
 .Lemprestimo{
-    width: 40%;
+    width: 35%;
     height: auto;
     background-color:rgba(255, 255, 255, 0.4);
     padding: 10px;
-    margin:10px 5%;
     padding-left: 15px;
-    float: left;
+    float:left;
+    box-sizing: border-box;
+    margin: 10px 3%;
 }
 
 
+.nav_sistema{
+    float: left;
+    width: 10%;
+    padding: 0px;
+}
+.ul_itens{
+    list-style-type: none;   
+    background-color: rgb(255, 140, 32);
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+}
+.a{
+    text-decoration: none;
+    text-align: center;
+    color: beige;
+    padding: 10px;
+    padding-left: 0px !important;
+    display: block;
+    width: 100%;
+}
+.a a:hover{
+    color: black;
+    background-color: white;
+}
+.li_itens{
+    margin: auto;
+    width: auto;
+    padding: 0px;
+}
+.td_listaitens{
+    border:1px solid black;
+    padding:1px 10px;
 
-/**/
+}
+.table_listaitens{
+    border-collapse: collapse;
+}
+/*navegação na parte esquerda do sistema*/

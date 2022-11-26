@@ -14,7 +14,7 @@
 
     if($res){
         echo"sucesso";
-        header("Location: teste.php");
+        header("Location: ../sistema/teste.php");
     }else{
         echo"não foi cadastrado";
     };
