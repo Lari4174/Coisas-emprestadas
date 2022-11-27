@@ -12,18 +12,18 @@ require "../requires/PF_head.php";
         <section class="login">
             <h2 style="text-align: center;">Cadastro</h2>
             <form action= "../recebendo/Recebecadastro.php" method="post" class="formu">
-                <label>Qual o seu nome?</label>
-                <input type="text" required class="entrada" name="nome">
+                <label for="nome">Qual o seu nome?</label>
+                <input type="text" required class="entrada" name="nome" id="nome">
 
-                <label>Digite sua cidade</label>
-                <input type="text" required class="entrada" name="cidade">
+                <label for="e-mail">Digite seu e-mail</label>
+                <input type="email" required class="entrada" name="e-mail" id="e-mail">
+
+                <label for="contato">Digite um contato</label>
+                <input type="email" required class="entrada" name="contato" id="contato">
                 
-                <label>Digite uma senha</label>
-                <input type="password" required class="entrada" name="pass">
-                
-                <label>Confirme sua senha</label>
-                <input type="password" required class="entrada">
-                
+                <label for="pass">Digite uma senha</label>
+                <input type="password" required class="entrada" name="pass" id="pass">
+
                 <button type="submit">Enviar</button>
             </form>
         </section>

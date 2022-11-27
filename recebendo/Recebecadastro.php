@@ -3,18 +3,18 @@
     if ($conn == false){
         die ("ERRO: não conseguiu conectar ao MySQL " . mysqli_connect_error());
     }
-    $id = $_POST['id'];
     $nome = $_POST['nome'];
-    $cidade = $_POST['cidade'];
+    $email = $_POST['e-mail'];
     $senha = $_POST['pass'];
+    $contato = $_POST['contato'];
 
-    $sql = "INSERT INTO cadastros (nome, cidade, senha) 
-    VALUES ('$nome', '$cidade', '$senha')";
+    $sql = "INSERT INTO cadastros (nome, email, contato, senha) 
+    VALUES ('$nome', '$email', $contato, '$senha')";
     $res = mysqli_query($conn , $sql);
 
     if($res){
         echo"sucesso";
-        header("Location: ../sistema/teste.php");
+        header("Location: ../parte_frontal/login.php?certo=1");
     }else{
         echo"não foi cadastrado";
     };

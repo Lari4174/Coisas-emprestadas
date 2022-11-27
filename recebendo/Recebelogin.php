@@ -1,15 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
 <?php
-    echo "Login: " . $_POST["usuario"] . "</br>";
-    echo "Senha: " . $_POST['senha'] . "</br>";
+    $nome =  $_POST["usuario"];
+    $senha = $_POST['senha'];
+
+    require"../requires/conecta.php";
+    $sql = "SELECT * FROM cadastros WHERE nome = '$nome' AND senha = '$senha'";
+    $res = mysqli_query($conn, $sql);
+    
+    $Qregistro = mysqli_num_rows($res);
+    if ($Qregistro > 0){
+        session_start();
+        $row = mysqli_fetch_assoc($res);
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['nome'] = $row['nome'];
+        $_SESSION['contato'] = $row['contato'];
+        header("Location: ../sistema/principal.php");
+        
+    }else{
+        header("Location: ../parte_frontal/login.php?erro=1");
+    }
 ?>
-</body>
-</html>

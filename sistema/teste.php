@@ -1,4 +1,5 @@
 <?php
+require"../requires/autentica.php";
 require "../requires/PF_head.php";
 ?>
 <body>
