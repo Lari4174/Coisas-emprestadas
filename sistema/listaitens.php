@@ -23,11 +23,11 @@ require "../requires/PF_head.php";
                 <tr>
                 <?php
                     require"../requires/conecta.php";
-                    $sql = "SELECT id, id_user, dono, emprestador, nome, data_aco, data_dev, contato FROM itens";
+                    $sql = "SELECT id, id_user, dono, emprestador, nome, data_aco, data_dev, contato, identificador FROM itens";
                     $query = mysqli_query($conn, $sql);
                     echo"<h2>Lista de coisas para emprestar<h2>";
                     while ($i = mysqli_fetch_assoc($query)){
-                        if(empty($i['emprestador'])){
+                        if($i['identificador'] == 0 && isset($i['emprestador'])){
                         echo"
                         <form action='../recebendo/recebe_emprestimo.php' method='post'>
                         <tr>

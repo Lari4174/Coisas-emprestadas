@@ -19,7 +19,7 @@ require "../requires/PF_head.php";
                 <input type="email" required class="entrada" name="e-mail" id="e-mail">
 
                 <label for="contato">Digite um contato</label>
-                <input type="email" required class="entrada" name="contato" id="contato">
+                <input type="number" required class="entrada" name="contato" id="contato">
                 
                 <label for="pass">Digite uma senha</label>
                 <input type="password" required class="entrada" name="pass" id="pass">

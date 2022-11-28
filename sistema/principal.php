@@ -10,6 +10,9 @@ require "../requires/PF_head.php";
         if(isset($_GET['altera'])){
             echo"<h5 class='titulo' style='color: green; margin-top:10px;'>Aleração de cadastro com sucesso</h5>";
         }
+        if(isset($_GET['devolvido'])){
+            echo"<h5 class='titulo' style='color: green; margin-top:10px;'>Devolvido com sucesso!!</h5>";
+        }
         ?>
     </header>
 
@@ -28,13 +31,15 @@ require "../requires/PF_head.php";
                         <td>De quem emprestou</td>
                         <td>Data do acordo</td>
                         <td>Data de devolução</td>
+                        <td>Contato</td>
+                        <td>Devolver</td>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                         require"../requires/conecta.php";
                         $iduser = $_SESSION['id'];
-                        $slq = "SELECT nome, data_aco, dono, data_dev, contato, identificador, emprestador FROM itens WHERE id_emprestador ='$iduser' AND identificador = 1";
+                        $slq = "SELECT id, nome, data_aco, dono, data_dev, contato, identificador, emprestador FROM itens WHERE id_emprestador ='$iduser' AND identificador = 1";
                         $query = mysqli_query($conn, $slq);
                         while($i = mysqli_fetch_assoc($query)){
                         echo "
@@ -43,6 +48,12 @@ require "../requires/PF_head.php";
                             <td>".$i ['dono']."</td>
                             <td>".$i ['data_aco']."</td>
                             <td>".$i ['data_dev']."</td>
+                            <td>contato</td>
+                        
+                            <form action='../recebendo/recebe_devolucao.php' method='post'>
+                            <input type='hidden' name='id_item' value = ". $i['id'] .">
+                            <td><button type='submit' name='devolvido' value='1'>clique para devolver</button></td>
+                            </form>
                         </tr>";
                         }
                     ?>
@@ -68,11 +79,11 @@ require "../requires/PF_head.php";
                     <?php
                         
                         $id_user = $_SESSION['id'];
-                        
                         require"../requires/conecta.php";
                         $sql = "SELECT * FROM itens WHERE id_user = '$id_user'";
                         $foi = mysqli_query($conn, $sql);
                         while ($i = mysqli_fetch_assoc($foi)){
+                        if ($i['identificador'] ==  1){
                             echo"
                             <tr>    
                                 <td>". $i['emprestador'] ."</td>
@@ -80,7 +91,7 @@ require "../requires/PF_head.php";
                                 <td>". $i['data_aco'] ."</td>
                                 <td>". $i['data_dev'] ."</td>
                             </tr>";
-                            }
+                            }}
                         
                     ?>
                 </tbody>

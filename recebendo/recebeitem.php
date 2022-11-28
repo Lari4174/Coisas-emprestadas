@@ -7,8 +7,8 @@
     $data_dev = $_POST['data_dev'];
     $contato = $_POST['contato'];
 
-   $ui = "INSERT INTO itens (id_user, dono, nome, data_aco, data_dev) 
-   VALUES ('$id', '$dono' ,'$nome_produto', '$data_aco', '$data_dev')";
+   $ui = "INSERT INTO itens (id_user, dono, nome, data_aco, data_dev, identificador) 
+   VALUES ('$id', '$dono' ,'$nome_produto', '$data_aco', '$data_dev', '0')";
    $res = mysqli_query($conn , $ui);
 
    if($res){
