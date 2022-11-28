@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Nov-2022 às 03:53
+-- Tempo de geração: 28-Nov-2022 às 18:31
 -- Versão do servidor: 10.4.25-MariaDB
 -- versão do PHP: 8.1.10
 
@@ -42,10 +42,9 @@ CREATE TABLE `cadastros` (
 --
 
 INSERT INTO `cadastros` (`id`, `nome`, `email`, `contato`, `senha`) VALUES
-(13, 'admin', 'admin@admin.com', 41999056568, 'admin'),
-(14, 'aline', 'a@a.com', 4196506620, '20212222'),
-(15, 'desi', 'desi@desi.com', 0, 'desi'),
-(16, 'brunno', 'b@b.com', 41999056568, 'b');
+(17, 'larissa', 'larissa@larissa.com', 99999999999, 'lari'),
+(18, 'teste', 'testes@teste.com', 9999999999, 'ad'),
+(19, 'admin', 'admin@admin.com', 41999056568, 'admin');
 
 -- --------------------------------------------------------
 
@@ -57,8 +56,10 @@ CREATE TABLE `itens` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `dono` varchar(500) NOT NULL,
+  `dono_contato` bigint(20) NOT NULL,
   `id_emprestador` int(11) NOT NULL,
   `emprestador` varchar(500) NOT NULL,
+  `emprestador_contato` bigint(20) NOT NULL,
   `nome` varchar(500) NOT NULL,
   `data_aco` date NOT NULL,
   `data_dev` date NOT NULL,
@@ -70,9 +71,12 @@ CREATE TABLE `itens` (
 -- Extraindo dados da tabela `itens`
 --
 
-INSERT INTO `itens` (`id`, `id_user`, `dono`, `id_emprestador`, `emprestador`, `nome`, `data_aco`, `data_dev`, `contato`, `identificador`) VALUES
-(36, 13, 'admin', 15, '', 'caderno', '2020-02-20', '2020-02-20', 0, 0),
-(40, 13, 'admin', 0, '', 'computador', '2020-02-20', '2020-02-20', 0, 0);
+INSERT INTO `itens` (`id`, `id_user`, `dono`, `dono_contato`, `id_emprestador`, `emprestador`, `emprestador_contato`, `nome`, `data_aco`, `data_dev`, `contato`, `identificador`) VALUES
+(44, 19, 'admin', 0, 0, '', 0, 'caderno', '2022-11-28', '2022-11-29', 0, 0),
+(45, 19, 'admin', 0, 0, '', 0, 'caderno', '2020-02-20', '2020-02-20', 0, 0),
+(46, 19, 'admin', 0, 0, '', 0, 'caderno', '2020-02-20', '2020-02-20', 0, 0),
+(47, 19, 'admin', 41999056568, 17, 'larissa', 99999999999, 'caderno', '2020-02-20', '2020-02-20', 41999056568, 1),
+(48, 19, 'admin', 41999056568, 0, '', 0, 'caderno', '2020-02-20', '2020-02-20', 41999056568, 0);
 
 --
 -- Índices para tabelas despejadas
@@ -98,13 +102,13 @@ ALTER TABLE `itens`
 -- AUTO_INCREMENT de tabela `cadastros`
 --
 ALTER TABLE `cadastros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `itens`
 --
 ALTER TABLE `itens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

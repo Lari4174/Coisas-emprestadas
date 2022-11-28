@@ -23,7 +23,7 @@ require "../requires/PF_head.php";
                 <tr>
                 <?php
                     require"../requires/conecta.php";
-                    $sql = "SELECT id, id_user, dono, emprestador, nome, data_aco, data_dev, contato, identificador FROM itens";
+                    $sql = "SELECT * FROM itens";
                     $query = mysqli_query($conn, $sql);
                     echo"<h2>Lista de coisas para emprestar<h2>";
                     while ($i = mysqli_fetch_assoc($query)){
@@ -35,10 +35,17 @@ require "../requires/PF_head.php";
                             <td class='td_listaitens'>". $i['nome'] ."</td>
                             <td class='td_listaitens'>". $i['data_aco'] ."</td>
                             <td class='td_listaitens'>". $i['data_dev'] ."</td>
-                            <td class='td_listaitens'>". $i['contato'] ."</td>
+                            <td class='td_listaitens'>". $i['dono_contato'] ."</td>
                             <input type='hidden' name='id_item' value='".$i['id']."'>
-                            <td class='td_listaitens'><button type='submit'>emprestar</button></td>
-                        </tr>
+                            ";
+                            if($_SESSION['id'] == $i['id_user']){ 
+                                echo"<td class='td_listaitens'></td>";
+                            }
+                            else{
+                            echo"
+                            <td class='td_listaitens'><button type='submit'>emprestar</button></td>";
+                        }
+                        echo "</tr>
                         </form>"; //aqui ainda precisa ter a verificação de qual é o usuário no campo hidden  
                         }
                     }

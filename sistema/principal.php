@@ -28,10 +28,10 @@ require "../requires/PF_head.php";
                 <thead>
                     <tr>
                         <td>Item</td>
-                        <td>De quem emprestou</td>
+                        <td>Dono</td>
                         <td>Data do acordo</td>
                         <td>Data de devolução</td>
-                        <td>Contato</td>
+                        <td>Contato do dono </td>
                         <td>Devolver</td>
                     </tr>
                 </thead>
@@ -39,7 +39,7 @@ require "../requires/PF_head.php";
                     <?php
                         require"../requires/conecta.php";
                         $iduser = $_SESSION['id'];
-                        $slq = "SELECT id, nome, data_aco, dono, data_dev, contato, identificador, emprestador FROM itens WHERE id_emprestador ='$iduser' AND identificador = 1";
+                        $slq = "SELECT * FROM itens WHERE id_emprestador ='$iduser' AND identificador = 1";
                         $query = mysqli_query($conn, $slq);
                         while($i = mysqli_fetch_assoc($query)){
                         echo "
@@ -48,7 +48,7 @@ require "../requires/PF_head.php";
                             <td>".$i ['dono']."</td>
                             <td>".$i ['data_aco']."</td>
                             <td>".$i ['data_dev']."</td>
-                            <td>contato</td>
+                            <td>".$i['dono_contato']."</td>
                         
                             <form action='../recebendo/recebe_devolucao.php' method='post'>
                             <input type='hidden' name='id_item' value = ". $i['id'] .">
@@ -57,9 +57,6 @@ require "../requires/PF_head.php";
                         </tr>";
                         }
                     ?>
-                </tbody>
-                <tbody>
-
                 </tbody>
             </table>
         </section>
@@ -72,6 +69,7 @@ require "../requires/PF_head.php";
                         <td>nome item</td> 
                         <td>Data de de acordo</td>
                         <td>data de devolução</td>
+                        <td>Contato devedor</td>
                         
                     </tr>
                 </thead>
@@ -90,7 +88,8 @@ require "../requires/PF_head.php";
                                 <td>". $i['nome'] ."</td>
                                 <td>". $i['data_aco'] ."</td>
                                 <td>". $i['data_dev'] ."</td>
-                            </tr>";
+                                <td>".$i['emprestador_contato']."</td>
+                                </tr>";
                             }}
                         
                     ?>
